@@ -45,10 +45,14 @@ public class MainPage {
     public void clickFillingsTab(){
         driver.findElement(fillingsTab).click();
     }
-    //Поиск кнопки 'Оформить заказ'
-    public String findCheckoutButton(){
+    //ожидание загрузки страницы
+    public void waitForMainPageLoad(){
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(checkoutButton));
+    }
+    //Поиск кнопки 'Оформить заказ'
+    public String findCheckoutButton(){
+        waitForMainPageLoad();
         return driver.findElement(checkoutButton).getText();
     }
 
