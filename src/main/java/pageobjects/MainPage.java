@@ -19,6 +19,10 @@ public class MainPage {
     private final By sauceTab = By.xpath(".//span[text()= 'Соусы']");
     //локатор вкладки "Начинки"
     private final By fillingsTab = By.xpath(".//span[text()= 'Начинки']");
+    //поиск названия активной вкладки
+    public String activeTab(){
+        return driver.findElement(By.xpath(".//div[contains(@class, 'current')]")).getText();
+    }
     //локатор кнопки "Оформить заказ"
     private final By checkoutButton = By.xpath(".//button[text()='Оформить заказ']");
 
