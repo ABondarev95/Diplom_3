@@ -1,5 +1,4 @@
 import constants.Constants;
-import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 
 import io.restassured.response.Response;
@@ -51,7 +50,7 @@ public class RegistrationTest {
     }
 
     @Test
-    @Step("Регистрация с некорректным паролем")
+    @DisplayName("Регистрация с некорректным паролем")
     public void registrationWithWrongPasswordFailed() {
         driver.get(Constants.REGISTER_PAGE);
         RegistrationPage registrationPage = new RegistrationPage(driver);
