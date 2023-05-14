@@ -49,6 +49,7 @@ public class RegistrationTest {
         userToken = response.path("accessToken");
         UserApi.deleteUser(userToken);
     }
+
     @Test
     @Step("Регистрация с некорректным паролем")
     public void registrationWithWrongPasswordFailed() {

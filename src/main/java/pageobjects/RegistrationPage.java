@@ -19,6 +19,8 @@ public class RegistrationPage {
     private final By registerButton = By.xpath(".//button[text()='Зарегистрироваться']");
     //локатор валидатора ввода формы
     private final By errorValidation = By.className("input__error");
+    //локатор кнопки 'Войти'
+    private final By loginButton = By.xpath(".//a[text()='Войти']");
 
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
@@ -51,6 +53,12 @@ public class RegistrationPage {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(errorValidation));
         return driver.findElement(errorValidation).getText();
+    }
+    //Нажатие кнопки 'Войти'
+    public void clickLoginButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOfElementLocated(loginButton));
+        driver.findElement(loginButton).click();
     }
 
 }

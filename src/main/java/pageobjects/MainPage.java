@@ -2,6 +2,10 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class MainPage {
     private final WebDriver driver;
@@ -42,8 +46,10 @@ public class MainPage {
         driver.findElement(fillingsTab).click();
     }
     //Поиск кнопки 'Оформить заказ'
-    public void findCheckoutButton(){
-        driver.findElement(checkoutButton);
+    public String findCheckoutButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOfElementLocated(checkoutButton));
+        return driver.findElement(checkoutButton).getText();
     }
 
 }
